@@ -1,10 +1,16 @@
 import EntidadesTraza1.*;
+import EntidadesTraza2.*;
 import Repositorio.InMemoryRepository;
 
 import java.time.LocalTime;
+import java.util.HashSet;
+import java.util.Set;
 
 public class Main {
     public static void main(String[] args) {
+
+        //============================= TRAZA1 =============================
+
         InMemoryRepository<Empresa> repositorio = new InMemoryRepository<>();
 
         LocalTime horaApertura = LocalTime.of(9, 0, 0);
@@ -143,5 +149,156 @@ public class Main {
 
         repositorio.guardar(empresa1);
         repositorio.guardar(empresa2);
+
+        //============================= TRAZA2 =============================
+
+        InMemoryRepository<Categoria> categoriaRepository = new InMemoryRepository<>();
+        InMemoryRepository<ArticuloInsumo> articuloInsumoRepository = new InMemoryRepository<>();
+        InMemoryRepository<ArticuloManufacturado> articuloManufacturadoRepository = new InMemoryRepository<>();
+        InMemoryRepository<UnidadMedida> unidadMedidaRepository = new InMemoryRepository<>();
+
+        // ========================== CATEGORÍAS ================================
+
+        Categoria pizzas = Categoria.builder().denominacion("Pizzas").esInsumo(false).build();
+        Categoria sandwiches = Categoria.builder().denominacion("Sandwiches").esInsumo(false).build();
+        Categoria bebidas = Categoria.builder().denominacion("Bebidas").esInsumo(false).build();
+        Categoria insumos = Categoria.builder().denominacion("Insumos").esInsumo(true).build();
+
+        categoriaRepository.guardar(pizzas);
+        categoriaRepository.guardar(sandwiches);
+        categoriaRepository.guardar(bebidas);
+        categoriaRepository.guardar(insumos);
+
+        // ========================== UNIDADES MEDIDA ================================
+
+        UnidadMedida kg = UnidadMedida.builder().denominacion("Kg").build();
+        UnidadMedida litro = UnidadMedida.builder().denominacion("Litro").build();
+        UnidadMedida gramos = UnidadMedida.builder().denominacion("Gramos").build();
+
+        unidadMedidaRepository.guardar(kg);
+        unidadMedidaRepository.guardar(litro);
+        unidadMedidaRepository.guardar(gramos);
+
+        // ========================== ARTICULO INSUMO ================================
+
+        ArticuloInsumo sal = ArticuloInsumo.builder()
+                .denominacion("Sal")
+                .precioCompra(1.0)
+                .stockActual(100)
+                .stockMinimo(10)
+                .stockMaximo(200)
+                .esParaElaborar(true)
+                .unidadMedida(gramos)
+                .categoria(insumos)
+                .build();
+
+        ArticuloInsumo harina = ArticuloInsumo.builder()
+                .denominacion("Harina")
+                .precioCompra(0.5)
+                .stockActual(50)
+                .stockMinimo(5)
+                .stockMaximo(100)
+                .esParaElaborar(true)
+                .unidadMedida(kg)
+                .categoria(insumos)
+                .build();
+
+        ArticuloInsumo aceite = ArticuloInsumo.builder()
+                .denominacion("Aceite")
+                .precioCompra(3.0)
+                .stockActual(30)
+                .stockMinimo(3)
+                .stockMaximo(60)
+                .esParaElaborar(true)
+                .unidadMedida(litro)
+                .categoria(insumos)
+                .build();
+
+        ArticuloInsumo carne = ArticuloInsumo.builder()
+                .denominacion("Carne")
+                .precioCompra(5.0)
+                .stockActual(20)
+                .stockMinimo(2)
+                .stockMaximo(40)
+                .esParaElaborar(true)
+                .unidadMedida(kg)
+                .categoria(insumos)
+                .build();
+
+        articuloInsumoRepository.guardar(sal);
+        articuloInsumoRepository.guardar(harina);
+        articuloInsumoRepository.guardar(aceite);
+        articuloInsumoRepository.guardar(carne);
+
+        // ========================== IMAGEN ARTICULO ================================
+
+        ImagenArticulo img1 = ImagenArticulo.builder().
+                name("HawaianaPizza1").url("http://example.com/pizza1").build();
+        ImagenArticulo img2 = ImagenArticulo.builder().name("HawaianaPizza2").url("http://example.com/pizza2").build();
+        ImagenArticulo img3 = ImagenArticulo.builder().name("HawaianaPizza3").url("http://example.com/pizza3").build();
+        ImagenArticulo img4 = ImagenArticulo.builder().name("LomoCompletoLomo1").url("http://example.com/lomo1").build();
+        ImagenArticulo img5 = ImagenArticulo.builder().name("LomoCompletoLomo2").url("http://example.com/lomo2").build();
+        ImagenArticulo img6 = ImagenArticulo.builder().name("LomoCompletoLomo3").url("http://example.com/lomo3").build();
+
+        // ========================== ARTICULO MANUFACTURADO DETALLE ================================
+
+        ArticuloManufacturadoDetalle detalle1PizzaHawaina = ArticuloManufacturadoDetalle.builder()
+                .cantidad(1)
+                .articuloInsumo(sal)
+                .build();
+
+        ArticuloManufacturadoDetalle detalle2PizzaHawaina = ArticuloManufacturadoDetalle.builder()
+                .cantidad(2)
+                .articuloInsumo(harina)
+                .build();
+
+        ArticuloManufacturadoDetalle detalle3PizzaHawaina = ArticuloManufacturadoDetalle.builder()
+                .cantidad(1)
+                .articuloInsumo(aceite)
+                .build();
+
+        ArticuloManufacturadoDetalle detalle1LomoCompleto = ArticuloManufacturadoDetalle.builder()
+                .cantidad(1)
+                .articuloInsumo(sal)
+                .build();
+
+        ArticuloManufacturadoDetalle detalle2LomoCompleto = ArticuloManufacturadoDetalle.builder()
+                .cantidad(1)
+                .articuloInsumo(aceite)
+                .build();
+
+        ArticuloManufacturadoDetalle detalle3LomoCompleto = ArticuloManufacturadoDetalle.builder()
+                .cantidad(2)
+                .articuloInsumo(carne)
+                .build();
+
+        // ========================== ARTICULO MANUFACTURADO ================================
+
+        ArticuloManufacturado pizzaHawaina = ArticuloManufacturado.builder()
+                .denominacion("Pizza Hawaina")
+                .precioVenta(12.0)
+                .descripcion("Pizza con piña y jamón")
+                .tiempoEstimadoMinutos(20)
+                .preparacion("Hornear por 20 minutos")
+                .categoria(pizzas)
+                .unidadMedida(kg)
+                .imagenes(new HashSet<>(Set.of(img1, img2, img3)))
+                .articuloManufacturadoDetalles(new HashSet<>(Set.of(detalle1PizzaHawaina, detalle2PizzaHawaina, detalle3PizzaHawaina)))
+                .build();
+
+        ArticuloManufacturado lomoCompleto = ArticuloManufacturado.builder()
+                .denominacion("Lomo Completo")
+                .precioVenta(15.0)
+                .descripcion("Lomo completo con todos los ingredientes")
+                .tiempoEstimadoMinutos(25)
+                .preparacion("Cocinar a la parrilla por 25 minutos")
+                .categoria(sandwiches)
+                .unidadMedida(kg)
+                .imagenes(new HashSet<>(Set.of(img4, img5, img6)))
+                .articuloManufacturadoDetalles(new HashSet<>(Set.of(detalle1LomoCompleto, detalle2LomoCompleto, detalle3LomoCompleto)))
+                .build();
+
+        articuloManufacturadoRepository.guardar(pizzaHawaina);
+        articuloManufacturadoRepository.guardar(lomoCompleto);
     }
 }

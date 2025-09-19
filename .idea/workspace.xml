@@ -5,13 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7f8ac9dc-7fb1-4506-b6b7-2e71447c412e" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/EntidadesTraza1/Domicilio.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/EntidadesTraza1/Empresa.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/EntidadesTraza1/Localidad.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/EntidadesTraza1/Pais.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/EntidadesTraza1/Provincia.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/EntidadesTraza1/Sucursal.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Repositorio/InMemoryRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/EntidadesTraza2/Articulo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/EntidadesTraza2/ArticuloInsumo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/EntidadesTraza2/ArticuloManufacturado.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/EntidadesTraza2/ArticuloManufacturadoDetalle.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/EntidadesTraza2/Categoria.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/EntidadesTraza2/ImagenArticulo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/EntidadesTraza2/UnidadMedida.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -42,12 +42,14 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "Application.Main.executor": "Run",
     "Downloaded.Files.Path.Enabled": "false",
     "Repository.Attach.Annotations": "false",
     "Repository.Attach.JavaDocs": "false",
     "Repository.Attach.Sources": "false",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "git-widget-placeholder": "main",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "C:/UTN/3er año/Desarrollo de Software/Repositorios Tps/Tp-traza1 y 2/EjercicioTraza1y2",
