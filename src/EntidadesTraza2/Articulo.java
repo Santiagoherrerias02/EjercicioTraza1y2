@@ -8,17 +8,17 @@ import java.util.Set;
 @NoArgsConstructor
 @AllArgsConstructor
 @Getter
-@ToString
 @Setter
+@ToString
 @SuperBuilder
 
-public abstract class Articulo  {
+public abstract class Articulo {
     protected Long id;
     protected String denominacion;
     protected Double precioVenta;
     @Builder.Default
     protected Set<ImagenArticulo> imagenes = new HashSet<>();
     protected UnidadMedida unidadMedida;
-    private Categoria categoria;
-
 }
+
+

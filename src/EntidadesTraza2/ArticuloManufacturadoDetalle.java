@@ -7,6 +7,7 @@ import lombok.experimental.SuperBuilder;
 @AllArgsConstructor
 @Getter
 @Setter
+@ToString
 @SuperBuilder
 
 public class ArticuloManufacturadoDetalle {
@@ -14,3 +15,4 @@ public class ArticuloManufacturadoDetalle {
     private Integer cantidad;
     private ArticuloInsumo articuloInsumo;
 }
+

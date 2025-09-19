@@ -1,13 +1,18 @@
 package EntidadesTraza1;
 
+import ClaseIntermedia.SucursalArticulo;
 import lombok.*;
+import lombok.experimental.SuperBuilder;
 import java.time.LocalTime;
+import java.util.HashSet;
+import java.util.Set;
 
+@AllArgsConstructor
+@NoArgsConstructor
 @Setter
 @Getter
-@NoArgsConstructor
-@AllArgsConstructor
-@Builder
+@SuperBuilder
+@ToString
 
 public class Sucursal {
     private Long id;
@@ -17,4 +22,11 @@ public class Sucursal {
     private boolean es_Casa_Matriz;
     private Domicilio domicilio;
     private Empresa empresa;
+
+    @Builder.Default
+    private Set<SucursalArticulo> articulos = new HashSet<>();
+
+    public void agregarArticulo(SucursalArticulo sucursalArticulo) {
+        articulos.add(sucursalArticulo);
+    }
 }

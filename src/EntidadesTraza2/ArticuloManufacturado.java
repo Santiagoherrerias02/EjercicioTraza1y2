@@ -9,12 +9,14 @@ import java.util.Set;
 @NoArgsConstructor
 @Setter
 @Getter
+@ToString(callSuper = true)
 @SuperBuilder
 
-public class ArticuloManufacturado  extends Articulo{
+public class ArticuloManufacturado extends Articulo {
     private String descripcion;
     private Integer tiempoEstimadoMinutos;
     private String preparacion;
     @Builder.Default
     private Set<ArticuloManufacturadoDetalle> articuloManufacturadoDetalles = new HashSet<>();
 }
+

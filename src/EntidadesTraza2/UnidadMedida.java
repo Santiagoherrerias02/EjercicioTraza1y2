@@ -7,6 +7,7 @@ import lombok.*;
 @Setter
 @Getter
 @Builder
+@ToString
 
 public class UnidadMedida {
     private Long id;

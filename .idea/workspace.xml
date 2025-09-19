@@ -4,7 +4,19 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7f8ac9dc-7fb1-4506-b6b7-2e71447c412e" name="Changes" comment="" />
+    <list default="true" id="7f8ac9dc-7fb1-4506-b6b7-2e71447c412e" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/ClaseIntermedia/SucursalArticulo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/EntidadesTraza1/Sucursal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/EntidadesTraza1/Sucursal.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/EntidadesTraza2/Articulo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/EntidadesTraza2/Articulo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/EntidadesTraza2/ArticuloInsumo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/EntidadesTraza2/ArticuloInsumo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/EntidadesTraza2/ArticuloManufacturado.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/EntidadesTraza2/ArticuloManufacturado.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/EntidadesTraza2/ArticuloManufacturadoDetalle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/EntidadesTraza2/ArticuloManufacturadoDetalle.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/EntidadesTraza2/Categoria.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/EntidadesTraza2/Categoria.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/EntidadesTraza2/ImagenArticulo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/EntidadesTraza2/ImagenArticulo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/EntidadesTraza2/UnidadMedida.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/EntidadesTraza2/UnidadMedida.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -33,7 +45,7 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
-    "Application.Main.executor": "Run",
+    "Application.Main.executor": "Debug",
     "Downloaded.Files.Path.Enabled": "false",
     "Repository.Attach.Annotations": "false",
     "Repository.Attach.JavaDocs": "false",

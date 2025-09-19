@@ -9,6 +9,7 @@ import java.util.Set;
 @Setter
 @Getter
 @Builder
+@ToString
 
 public class Categoria {
     private Long id;
@@ -16,8 +17,4 @@ public class Categoria {
     private boolean esInsumo;
     @Builder.Default
     private Set<Articulo> articulos = new HashSet<>();
-    @Builder.Default
-    private Set<Categoria> subCategorias = new HashSet<>();
-    private Categoria categoriaPadre;
 }
-

@@ -7,7 +7,7 @@ import lombok.experimental.SuperBuilder;
 @NoArgsConstructor
 @Setter
 @Getter
-@ToString
+@ToString(callSuper = true)
 @SuperBuilder
 
 public class ArticuloInsumo extends Articulo {
@@ -16,5 +16,5 @@ public class ArticuloInsumo extends Articulo {
     private Integer stockMinimo;
     private Integer stockMaximo;
     private Boolean esParaElaborar;
-
 }
+

@@ -7,9 +7,11 @@ import lombok.*;
 @Setter
 @Getter
 @Builder
+@ToString
 
 public class ImagenArticulo {
     private Long id;
     private String name;
     private String url;
 }
+
