@@ -4,16 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7f8ac9dc-7fb1-4506-b6b7-2e71447c412e" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/EntidadesTraza2/Articulo.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/EntidadesTraza2/ArticuloInsumo.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/EntidadesTraza2/ArticuloManufacturado.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/EntidadesTraza2/ArticuloManufacturadoDetalle.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/EntidadesTraza2/Categoria.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/EntidadesTraza2/ImagenArticulo.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/EntidadesTraza2/UnidadMedida.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
-    </list>
+    <list default="true" id="7f8ac9dc-7fb1-4506-b6b7-2e71447c412e" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
