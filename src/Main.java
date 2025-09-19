@@ -445,7 +445,7 @@ public class Main {
         );
 
         System.out.println("\n================= BUSCAR ARTÍCULOS EN UNA SUCURSAL =================");
-        String sucursalBuscada = "Sucursal CABA"; // cambialo al nombre que quieras buscar
+        String sucursalBuscada = "Sucursal CABA";
         System.out.println("Buscando artículos en la sucursal '" + sucursalBuscada + "'...");
         Set<SucursalArticulo> enSucursal = new HashSet<>();
         for (SucursalArticulo sa : todasRelaciones) {
@@ -468,7 +468,7 @@ public class Main {
         Optional<SucursalArticulo> relToUpdate = todasRelaciones.stream().filter(sa -> sa.getId().equals(1L)).findFirst();
         if (relToUpdate.isPresent()) {
             SucursalArticulo sa = relToUpdate.get();
-            sa.setStock(120); // nuevo stock (ejemplo)
+            sa.setStock(120);
             System.out.println("Resultado: Relación después de la actualización -> Sucursal: " + sa.getSucursal().getNombre()
                     + " | Artículo: " + sa.getArticulo().getDenominacion()
                     + " | Stock: " + sa.getStock());
