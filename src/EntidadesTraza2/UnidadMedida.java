@@ -1,16 +1,12 @@
 package EntidadesTraza2;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.experimental.SuperBuilder;
+import lombok.*;
 
 @AllArgsConstructor
 @NoArgsConstructor
 @Setter
 @Getter
-@SuperBuilder
+@Builder
 
 public class UnidadMedida {
     private Long id;

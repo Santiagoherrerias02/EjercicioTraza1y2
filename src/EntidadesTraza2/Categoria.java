@@ -1,7 +1,6 @@
 package EntidadesTraza2;
 
 import lombok.*;
-import lombok.experimental.SuperBuilder;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -9,8 +8,8 @@ import java.util.Set;
 @NoArgsConstructor
 @Setter
 @Getter
-@ToString
-@SuperBuilder
+@Builder
+
 public class Categoria {
     private Long id;
     private String denominacion;

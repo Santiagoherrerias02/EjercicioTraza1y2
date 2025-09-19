@@ -8,6 +8,7 @@ import lombok.experimental.SuperBuilder;
 @Getter
 @Setter
 @SuperBuilder
+
 public class ArticuloManufacturadoDetalle {
     private Long id;
     private Integer cantidad;
