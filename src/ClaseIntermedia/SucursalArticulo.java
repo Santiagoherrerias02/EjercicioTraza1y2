@@ -1,6 +1,5 @@
 package ClaseIntermedia;
 
-import EntidadesTraza1.Sucursal;
 import EntidadesTraza2.Articulo;
 import lombok.*;
 
@@ -13,7 +12,6 @@ import lombok.*;
 
 public class SucursalArticulo {
     private Long id;
-    private Sucursal sucursal;
     private Articulo articulo;
     private Integer stock;
 }

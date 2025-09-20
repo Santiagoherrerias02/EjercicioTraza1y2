@@ -5,7 +5,6 @@ import ClaseIntermedia.SucursalArticulo;
 import java.time.LocalTime;
 import java.util.HashSet;
 import java.util.List;
-import java.util.Optional;
 import java.util.Set;
 
 public class Main {
@@ -356,42 +355,36 @@ public class Main {
 
         SucursalArticulo sa1 = SucursalArticulo.builder()
                 .id(1L)
-                .sucursal(sucursal1) // Mc Donalds - CABA
                 .articulo(hamburguesaMc)
                 .stock(50)
                 .build();
 
         SucursalArticulo sa2 = SucursalArticulo.builder()
                 .id(2L)
-                .sucursal(sucursal1) // Mc Donalds - CABA
                 .articulo(papasFritas)
                 .stock(80)
                 .build();
 
         SucursalArticulo sa3 = SucursalArticulo.builder()
                 .id(3L)
-                .sucursal(sucursal2) // Mc Donalds - La Plata
                 .articulo(hamburguesaMc)
                 .stock(30)
                 .build();
 
         SucursalArticulo sa4 = SucursalArticulo.builder()
                 .id(4L)
-                .sucursal(sucursal3) // Burger King - Córdoba Capital
                 .articulo(whopper)
                 .stock(40)
                 .build();
 
         SucursalArticulo sa5 = SucursalArticulo.builder()
                 .id(5L)
-                .sucursal(sucursal3) // Burger King - Córdoba Capital
                 .articulo(papasKing)
                 .stock(60)
                 .build();
 
         SucursalArticulo sa6 = SucursalArticulo.builder()
                 .id(6L)
-                .sucursal(sucursal4) // Burger King - Villa Carlos Paz
                 .articulo(whopper)
                 .stock(20)
                 .build();
@@ -421,74 +414,106 @@ public class Main {
                         " | Precio Compra: $" + i.getPrecioCompra()
         ));
 
+        // ================= MOSTRAR STOCK EN TODAS LAS SUCURSALES =================
         System.out.println("\n================= MOSTRAR STOCK EN TODAS LAS SUCURSALES =================");
-        Set<SucursalArticulo> todasRelaciones = new HashSet<>();
-        todasRelaciones.addAll(sucursal1.getArticulos());
-        todasRelaciones.addAll(sucursal2.getArticulos());
-        todasRelaciones.addAll(sucursal3.getArticulos());
-        todasRelaciones.addAll(sucursal4.getArticulos());
 
-        todasRelaciones.forEach(sa -> System.out.println(
-                "Sucursal: " + sa.getSucursal().getNombre() +
+        // agrupamos las sucursales en un set para recorrerlas
+        Set<Sucursal> todasSucursales = new HashSet<>(Set.of(sucursal1, sucursal2, sucursal3, sucursal4));
+
+        for (Sucursal suc : todasSucursales) {
+            for (SucursalArticulo sa : suc.getArticulos()) {
+                System.out.println("Sucursal: " + suc.getNombre() +
                         " | Artículo: " + sa.getArticulo().getDenominacion() +
                         " | Precio Venta: $" + sa.getArticulo().getPrecioVenta() +
-                        " | Stock en sucursal: " + sa.getStock()
-        ));
+                        " | Stock en sucursal: " + sa.getStock());
+            }
+        }
 
+            // ================= BUSCAR RELACIÓN SUCURSAL–ARTÍCULO POR ID =================
         System.out.println("\n================= BUSCAR RELACIÓN SUCURSAL–ARTÍCULO POR ID =================");
         System.out.println("Buscando relación SucursalArticulo con ID = 2...");
-        Optional<SucursalArticulo> relPorId = todasRelaciones.stream().filter(sa -> sa.getId().equals(2L)).findFirst();
-        relPorId.ifPresentOrElse(
-                sa -> System.out.println("Resultado: " + sa.getArticulo().getDenominacion() +
-                        " disponible en " + sa.getSucursal().getNombre() + " | Stock: " + sa.getStock()),
-                () -> System.out.println("Resultado: No se encontró la relación con ID 2")
-        );
+        SucursalArticulo encontrado = null;
+        Sucursal sucursalDeRelacion = null;
 
+        for (Sucursal suc : todasSucursales) {
+            for (SucursalArticulo sa : suc.getArticulos()) {
+                if (sa.getId().equals(2L)) {
+                    encontrado = sa;
+                    sucursalDeRelacion = suc;
+                    break;
+                }
+            }
+        }
+        if (encontrado != null) {
+            System.out.println("Resultado: " + encontrado.getArticulo().getDenominacion() +
+                    " disponible en " + sucursalDeRelacion.getNombre() +
+                    " | Stock: " + encontrado.getStock());
+        } else {
+            System.out.println("Resultado: No se encontró la relación con ID 2");
+        }
+
+            // ================= BUSCAR ARTÍCULOS EN UNA SUCURSAL =================
         System.out.println("\n================= BUSCAR ARTÍCULOS EN UNA SUCURSAL =================");
         String sucursalBuscada = "Sucursal CABA";
         System.out.println("Buscando artículos en la sucursal '" + sucursalBuscada + "'...");
-        Set<SucursalArticulo> enSucursal = new HashSet<>();
-        for (SucursalArticulo sa : todasRelaciones) {
-            if (sa.getSucursal().getNombre().equalsIgnoreCase(sucursalBuscada)) {
-                enSucursal.add(sa);
-            }
-        }
-        if (enSucursal.isEmpty()) {
+        Sucursal sucBuscada = todasSucursales.stream()
+                .filter(s -> s.getNombre().equalsIgnoreCase(sucursalBuscada))
+                .findFirst()
+                .orElse(null);
+
+        if (sucBuscada == null || sucBuscada.getArticulos().isEmpty()) {
             System.out.println("Resultado: No hay artículos registrados en esa sucursal.");
         } else {
-            enSucursal.forEach(sa -> System.out.println(
-                    "Resultado: " + sa.getArticulo().getDenominacion() +
-                            " | Precio: $" + sa.getArticulo().getPrecioVenta() +
-                            " | Stock: " + sa.getStock()
-            ));
+            for (SucursalArticulo sa : sucBuscada.getArticulos()) {
+                System.out.println("Resultado: " + sa.getArticulo().getDenominacion() +
+                        " | Precio: $" + sa.getArticulo().getPrecioVenta() +
+                        " | Stock: " + sa.getStock());
+            }
         }
 
+                // ================= ACTUALIZAR STOCK =================
         System.out.println("\n================= ACTUALIZAR STOCK DE UN ARTÍCULO EN UNA SUCURSAL =================");
         System.out.println("Actualizando stock de la relación con ID = 1...");
-        Optional<SucursalArticulo> relToUpdate = todasRelaciones.stream().filter(sa -> sa.getId().equals(1L)).findFirst();
-        if (relToUpdate.isPresent()) {
-            SucursalArticulo sa = relToUpdate.get();
-            sa.setStock(120);
-            System.out.println("Resultado: Relación después de la actualización -> Sucursal: " + sa.getSucursal().getNombre()
-                    + " | Artículo: " + sa.getArticulo().getDenominacion()
-                    + " | Stock: " + sa.getStock());
+        SucursalArticulo relToUpdate = null;
+        Sucursal sucToUpdate = null;
+
+        for (Sucursal suc : todasSucursales) {
+            for (SucursalArticulo sa : suc.getArticulos()) {
+                if (sa.getId().equals(1L)) {
+                    relToUpdate = sa;
+                    sucToUpdate = suc;
+                    break;
+                }
+            }
+        }
+        if (relToUpdate != null) {
+            relToUpdate.setStock(120);
+            System.out.println("Resultado: Relación después de la actualización -> Sucursal: " +
+                    sucToUpdate.getNombre() + " | Artículo: " +
+                    relToUpdate.getArticulo().getDenominacion() +
+                    " | Stock: " + relToUpdate.getStock());
         } else {
             System.out.println("Resultado: No se encontró la relación con ID 1");
         }
 
+                // ================= ELIMINAR RELACIÓN =================
         System.out.println("\n================= ELIMINAR RELACIÓN ARTÍCULO–SUCURSAL =================");
         System.out.println("Eliminando relación con ID = 6...");
         boolean eliminado = false;
-        Set<Sucursal> todasSucursales = new HashSet<>(Set.of(sucursal1, sucursal2, sucursal3, sucursal4));
-        for (Sucursal s : todasSucursales) {
-            eliminado = s.getArticulos().removeIf(sa -> sa.getId().equals(6L));
+        Sucursal sucEliminada = null;
+
+        for (Sucursal suc : todasSucursales) {
+            eliminado = suc.getArticulos().removeIf(sa -> sa.getId().equals(6L));
             if (eliminado) {
-                System.out.println("Resultado: La relación artículo–sucursal con ID 6 ha sido eliminada correctamente de la sucursal " + s.getNombre());
+                sucEliminada = suc;
                 break;
             }
         }
-        if (!eliminado) {
+        if (eliminado) {
+            System.out.println("Resultado: La relación artículo–sucursal con ID 6 ha sido eliminada correctamente de la sucursal " + sucEliminada.getNombre());
+        } else {
             System.out.println("Resultado: No se encontró la relación con ID 6");
         }
+
     }
 }
