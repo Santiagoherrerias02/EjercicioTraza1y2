@@ -22,7 +22,6 @@ public class Sucursal {
     private boolean es_Casa_Matriz;
     private Domicilio domicilio;
     private Empresa empresa;
-
     @Builder.Default
     private Set<SucursalArticulo> articulos = new HashSet<>();
 

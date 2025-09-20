@@ -2,7 +2,6 @@ package EntidadesTraza1;
 
 import lombok.*;
 
-
 @Setter
 @Getter
 @ToString

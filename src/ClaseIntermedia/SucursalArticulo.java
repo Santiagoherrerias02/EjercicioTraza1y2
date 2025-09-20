@@ -15,6 +15,6 @@ public class SucursalArticulo {
     private Long id;
     private Sucursal sucursal;
     private Articulo articulo;
-    private Integer stock; // opcional: stock específico por sucursal
+    private Integer stock;
 }
 
